@@ -13,11 +13,11 @@ test('renders good to see you if button not clicked',()=>{
     expect(outputElement).toBeInTheDocument();
 });
 
-test('render "changed" if button is clicked',()=>{
-    const buttonElement = screen.getByRole('button');
+test('render "changed" if button is clicked',async ()=>{
+    const buttonElement =  screen.getByRole('button');
 
     userEvent.click(buttonElement);
-    const outputElement = screen.getByText('Changed');
+    const outputElement = await screen.findByText('Changed');
     expect(outputElement).toBeInTheDocument();
 })
 test('render not "good to see you" if button is clicked',()=>{
